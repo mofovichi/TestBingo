@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>빙고판</title>
+    <style>
+        table {
+            border: 1px solid #444444;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+        th, td {
+            border: 1px solid #444444;
+            text-align: center;
+        }
+
+        .dark {background-color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+<table class="table">
+    <tr th:each="bingoWordTable : ${bingoWords}">
+        <td th:if="${bingoWordTr.checked}"  th:each="bingoWordTr : ${bingoWordTable}" th:text="${bingoWordTr.word}" class="dark"> </td>
+        <td th:unless="${bingoWordTr.checked}"  th:each="bingoWordTr : ${bingoWordTable}" th:text="${bingoWordTr.word}"> </td>
+    </tr>
+</table>
+<form th:action="@{/bingo/find}" method="post">
+<input type="value" name="word"/>
+<input type="submit" value="입력"/>
+</form>
+
+</body>
+</html>

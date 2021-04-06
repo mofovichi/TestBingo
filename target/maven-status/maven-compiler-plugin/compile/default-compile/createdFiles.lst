@@ -1,0 +1,4 @@
+com\test\model\BingoEntity.class
+com\test\BingoPrintController.class
+com\test\BingoStartController.class
+com\test\StartApplication.class
